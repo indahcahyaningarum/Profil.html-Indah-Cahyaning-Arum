@@ -1,33 +1,24 @@
-/* ===== TEMA VINTAGE | Font: Times New Roman =====
-   Tata letak mengikuti sketsa: header, nav, kartu bertumpuk,
-   Keahlian + Fakta Menarik berdampingan, form, kontak. */
-
-/* ===== 1. Universal selector + box-sizing (ketentuan no. 6) ===== */
 * {
     box-sizing: border-box;
 }
-
-/* ===== 2. Selector TAG: body ===== */
 body {
     font-family: "Times New Roman", Times, serif;
     font-size: 18px;
     line-height: 1.6;
-    color: #4a3728;                 /* cokelat tua */
-    background-color: #f1e7d0;      /* krem kertas tua */
+    color: #4a3728;              
+    background-color: #f1e7d0;      
     margin: 0 auto;
     padding: 20px;
     max-width: 900px;
 }
 
-/* Semua elemen form ikut Times New Roman */
 input, textarea, button {
     font-family: inherit;
 }
 
-/* ===== 3. Selector ID: header ===== */
 #header-utama {
     color: #f5ecd7;
-    background-color: #6b4226;      /* cokelat sepia */
+    background-color: #6b4226;      
     padding: 30px 20px;
     margin-bottom: 20px;
     text-align: center;
@@ -46,7 +37,6 @@ input, textarea, button {
     margin: 0;
 }
 
-/* ===== Navigasi ===== */
 nav {
     background-color: #fbf5e6;
     padding: 12px;
@@ -57,7 +47,7 @@ nav {
 }
 
 nav a {
-    color: #7a3e2b;                 /* merah bata */
+    color: #7a3e2b;                 
     text-decoration: none;
     font-weight: bold;
 }
@@ -67,16 +57,14 @@ nav a:hover {
     text-decoration: underline;
 }
 
-/* ===== 4. Selector CLASS: kartu (box model: padding, margin, border) ===== */
 .kartu {
     background-color: #fbf5e6;
-    padding: 20px;                  /* padding */
-    margin-bottom: 20px;            /* margin antar section */
-    border: 2px solid #8b5e3c;      /* border */
+    padding: 20px;                  
+    margin-bottom: 20px;            
+    border: 2px solid #8b5e3c;     
     border-radius: 12px;
 }
 
-/* ===== Judul ===== */
 h2 {
     font-size: 28px;
     color: #7a3e2b;
@@ -90,9 +78,8 @@ h3 {
     color: #8a6d3b;
 }
 
-/* ===== Tentang Saya: foto di kiri, teks di kanan ===== */
 #tentang {
-    display: flow-root;             /* kartu membungkus foto yang float */
+    display: flow-root;             
 }
 
 #tentang img {
@@ -106,7 +93,6 @@ img {
     padding: 4px;
 }
 
-/* ===== Tabel ===== */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -126,7 +112,6 @@ tr:nth-child(even) td {
     background-color: #f3e8d0;
 }
 
-/* ===== Multimedia ===== */
 video {
     max-width: 100%;
     height: auto;
@@ -139,7 +124,6 @@ audio {
     max-width: 480px;
 }
 
-/* ===== Keahlian + Fakta Menarik berdampingan ===== */
 .baris-ganda {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -165,7 +149,6 @@ aside.kartu h2 {
     border-bottom-color: #c9a96a;
 }
 
-/* ===== Form ===== */
 form label {
     display: block;
     font-weight: bold;
@@ -198,7 +181,6 @@ form button:hover {
     background-color: #a67c3d;
 }
 
-/* ===== Footer ===== */
 footer {
     background-color: #6b4226;
     color: #f5ecd7;
@@ -217,7 +199,6 @@ footer a {
     color: #e8c872;
 }
 
-/* ===== Layar kecil (HP): kartu ditumpuk ===== */
 @media (max-width: 700px) {
     .baris-ganda {
         grid-template-columns: 1fr;
