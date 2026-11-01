@@ -1,96 +1,167 @@
+:root {
+    --coklat-tua: #3b2a20;
+    --coklat-header: #6b4429;
+    --coklat-aksen: #8b5e3c;
+    --coklat-muda: #efe3d6;
+    --krem-latar: #f6efe7;
+    --garis: #dcc9b6;
+    --teks: #3b2a20;
+}
+
 * {
     box-sizing: border-box;
 }
+
 body {
-    font-family: "Times New Roman", Times, serif;
-    font-size: 18px;
+    margin: 0;
+    font-family: "Poppins", "Segoe UI", Tahoma, Arial, sans-serif;
     line-height: 1.6;
-    color: #4a3728;              
-    background-color: #f1e7d0;      
+    color: var(--teks);
+    background-color: var(--krem-latar);
+}
+
+a {
+    color: var(--coklat-aksen);
+}
+
+h1, h2, h3 {
+    line-height: 1.25;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 1fr 3fr;      
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header  header"
+        "sidebar content"
+        "footer  footer";
+    gap: 20px;
+    max-width: 1100px;
     margin: 0 auto;
     padding: 20px;
-    max-width: 900px;
+    min-height: 100vh;
 }
 
-input, textarea, button {
-    font-family: inherit;
+header#header-utama {
+    grid-area: header;
 }
 
-#header-utama {
-    color: #f5ecd7;
-    background-color: #6b4226;      
-    padding: 30px 20px;
-    margin-bottom: 20px;
+aside {
+    grid-area: sidebar;
+    align-self: start;
+}
+
+main {
+    grid-area: content;
+}
+
+footer#kontak {
+    grid-area: footer;
+}
+
+header#header-utama {
+    background-color: var(--coklat-header);
+    color: #ffffff;
+    padding: 28px 32px 20px;
+    border-radius: 8px;
     text-align: center;
-    border: 3px double #c9a96a;
-    border-radius: 12px;
 }
 
-#header-utama h1 {
-    font-size: 42px;
-    margin: 0 0 8px 0;
+header#header-utama h1 {
+    margin: 0 0 4px;
+    font-size: 2rem;
 }
 
-#header-utama p {
-    font-size: 20px;
-    font-style: italic;
-    margin: 0;
+header#header-utama p {
+    margin: 0 0 16px;
 }
 
 nav {
-    background-color: #fbf5e6;
-    padding: 12px;
-    margin-bottom: 20px;
-    text-align: center;
-    border: 1px solid #c9b48a;
-    border-radius: 12px;
+    display: flex;          
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 18px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.35);
 }
 
 nav a {
-    color: #7a3e2b;                 
+    color: #ffffff;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 500;
 }
 
-nav a:hover {
-    color: #b8860b;
+nav a:hover,
+nav a:focus-visible {
     text-decoration: underline;
 }
 
+aside {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
 .kartu {
-    background-color: #fbf5e6;
-    padding: 20px;                  
-    margin-bottom: 20px;            
-    border: 2px solid #8b5e3c;     
-    border-radius: 12px;
+    background-color: #fffaf4;
+    border: 1px solid var(--garis);
+    border-radius: 8px;
+    padding: 20px 24px;
 }
 
-h2 {
-    font-size: 28px;
-    color: #7a3e2b;
+.kartu h2 {
     margin-top: 0;
-    padding-bottom: 8px;
-    border-bottom: 2px solid #d9c7a3;
+    font-size: 1.2rem;
+    color: var(--coklat-aksen);
 }
 
-h3 {
-    font-size: 21px;
-    color: #8a6d3b;
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-#tentang {
-    display: flow-root;             
+.tentang-isi {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    flex-wrap: wrap;
 }
 
-#tentang img {
-    float: left;
-    margin: 0 20px 10px 0;
+.tentang-isi img {
+    border-radius: 8px;
+    height: auto;
 }
 
-img {
-    border: 3px solid #8b5e3c;
-    border-radius: 10px;
-    padding: 4px;
+.tentang-teks {
+    flex: 1 1 280px;
+}
+
+.tentang-teks p:first-child {
+    margin-top: 0;
+}
+
+.daftar-keahlian {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.daftar-keahlian li,
+.kotak-coklat {
+    background-color: var(--coklat-muda);
+    border-left: 4px solid var(--coklat-aksen);
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 0.9rem;
+}
+
+.kotak-coklat {
+    margin: 0;
 }
 
 table {
@@ -98,25 +169,21 @@ table {
     border-collapse: collapse;
 }
 
+th, td {
+    border: 1px solid var(--garis);
+    padding: 8px 12px;
+    text-align: left;
+}
+
 th {
-    background-color: #8b5e3c;
-    color: #f5ecd7;
-}
-
-td, th {
-    padding: 10px;
-    border: 1px solid #c9b48a;
-}
-
-tr:nth-child(even) td {
-    background-color: #f3e8d0;
+    background-color: var(--coklat-muda);
 }
 
 video {
-    max-width: 100%;
+    width: 100%;
+    max-width: 480px;
     height: auto;
-    border: 2px solid #8b5e3c;
-    border-radius: 8px;
+    display: block;
 }
 
 audio {
@@ -124,89 +191,123 @@ audio {
     max-width: 480px;
 }
 
-.baris-ganda {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+.kartu-form {
+    background-color: #2e2019;
+    border-color: #2e2019;
+    color: #ffffff;
+    padding: 28px 32px;
+}
+
+.kartu-form h2 {
+    color: #ffffff;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
     gap: 20px;
 }
 
-.baris-ganda .kartu {
-    margin-bottom: 20px;
+.baris-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
-.kartu ul {
-    margin: 0;
-    padding-left: 24px;
+.baris-form .kolom-form {
+    flex: 1 1 220px;
 }
 
-aside.kartu {
-    background-color: #e9d8b4;
-    border-color: #a67c3d;
+.kolom-form {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
 }
 
-aside.kartu h2 {
-    color: #6b4226;
-    border-bottom-color: #c9a96a;
+label {
+    font-weight: 500;
 }
 
-form label {
-    display: block;
-    font-weight: bold;
-    margin: 12px 0 4px 0;
-}
-
-form input,
-form textarea {
+input,
+textarea {
     width: 100%;
-    padding: 8px;
-    background-color: #fffaf0;
-    border: 1px solid #a8916b;
-    border-radius: 4px;
-    font-size: 18px;
-    color: #4a3728;
+    padding: 14px 18px;
+    border: 1px solid #6a5242;
+    border-radius: 12px;
+    background-color: #4a372b;
+    color: #ffffff;
+    font: inherit;
 }
 
-form button {
-    margin-top: 14px;
-    padding: 10px 24px;
-    background-color: #7a3e2b;
-    color: #f5ecd7;
+input::placeholder,
+textarea::placeholder {
+    color: #a28b7a;
+}
+
+input:focus,
+textarea:focus {
+    outline: 2px solid #c79a6d;
+    outline-offset: 1px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 16px;
     border: none;
-    border-radius: 4px;
-    font-size: 18px;
+    border-radius: 12px;
+    background-color: #8b5e3c;
+    color: #ffffff;
+    font: inherit;
+    font-weight: 500;
+    font-size: 1.05rem;
     cursor: pointer;
 }
 
-form button:hover {
-    background-color: #a67c3d;
+button:hover {
+    background-color: #a06f48;
 }
 
-footer {
-    background-color: #6b4226;
-    color: #f5ecd7;
-    padding: 20px;
+button:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+}
+
+footer#kontak {
+    background-color: var(--coklat-tua);
+    color: #ffffff;
+    padding: 20px 32px;
+    border-radius: 8px;
     text-align: center;
-    border: 3px double #c9a96a;
-    border-radius: 12px;
 }
 
-footer h2 {
-    color: #f5ecd7;
-    border-bottom-color: #c9a96a;
+footer#kontak h2 {
+    margin: 0 0 4px;
+    font-size: 1.15rem;
 }
 
-footer a {
-    color: #e8c872;
+footer#kontak p {
+    margin: 0;
 }
 
-@media (max-width: 700px) {
-    .baris-ganda {
+footer#kontak a {
+    color: #e8c9a8;
+}
+
+@media (max-width: 720px) {
+    .layout {
         grid-template-columns: 1fr;
-    }
-
-    #tentang img {
-        float: none;
-        display: block;
-        margin: 0 auto 15px auto;
+        grid-template-areas:
+            "header"
+            "sidebar"
+            "content"
+            "footer";
     }
 }
