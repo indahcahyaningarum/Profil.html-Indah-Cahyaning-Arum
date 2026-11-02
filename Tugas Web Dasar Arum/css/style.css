@@ -1,10 +1,11 @@
 :root {
-    --coklat-tua: #3b2a20;
+    --coklat-tua: #5e3b22;
     --coklat-header: #6b4429;
-    --coklat-aksen: #8b5e3c;
-    --coklat-muda: #efe3d6;
-    --krem-latar: #f6efe7;
-    --garis: #dcc9b6;
+    --coklat-aksen: #7a4e2d;
+    --coklat-muda: #f1e0cd;
+    --krem-latar: #f4ebe1;
+    --krem-kartu: #fffaf3;
+    --garis: #e3c9ac;
     --teks: #3b2a20;
 }
 
@@ -14,7 +15,7 @@
 
 body {
     margin: 0;
-    font-family: "Poppins", "Segoe UI", Tahoma, Arial, sans-serif;
+    font-family: "Lora", Georgia, "Times New Roman", serif;
     line-height: 1.6;
     color: var(--teks);
     background-color: var(--krem-latar);
@@ -28,19 +29,32 @@ h1, h2, h3 {
     line-height: 1.25;
 }
 
+.ikon {
+    width: 1.2em;
+    height: 1.2em;
+    flex: none;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
 .layout {
     display: grid;
-    grid-template-columns: 1fr 3fr;      
+    grid-template-columns: 1fr 3fr;
     grid-template-rows: auto 1fr auto;
     grid-template-areas:
         "header  header"
         "sidebar content"
         "footer  footer";
     gap: 20px;
-    max-width: 1100px;
-    margin: 0 auto;
+    max-width: 1200px;
+    margin: 20px auto;
     padding: 20px;
-    min-height: 100vh;
+    background-color: #fdf3e8;
+    border: 1px solid var(--garis);
+    border-radius: 16px;
 }
 
 header#header-utama {
@@ -49,7 +63,6 @@ header#header-utama {
 
 aside {
     grid-area: sidebar;
-    align-self: start;
 }
 
 main {
@@ -61,32 +74,52 @@ footer#kontak {
 }
 
 header#header-utama {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
     background-color: var(--coklat-header);
     color: #ffffff;
     padding: 28px 32px 20px;
-    border-radius: 8px;
-    text-align: center;
+    border-radius: 14px;
+}
+
+.foto-bulat {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: 5px solid #fdf3e8;
+    object-fit: cover;
+    object-position: center 60%;
 }
 
 header#header-utama h1 {
-    margin: 0 0 4px;
+    margin: 14px 0 0;
     font-size: 2rem;
 }
 
 header#header-utama p {
-    margin: 0 0 16px;
-}
-
-nav {
-    display: flex;          
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px 18px;
+    width: 100%;
+    margin: 14px 0 0;
     padding-top: 14px;
     border-top: 1px solid rgba(255, 255, 255, 0.35);
 }
 
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 26px;
+    width: 100%;
+    margin-top: 14px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.35);
+}
+
 nav a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     color: #ffffff;
     text-decoration: none;
     font-weight: 500;
@@ -101,19 +134,47 @@ aside {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    background-color: var(--coklat-header);
+    border-radius: 14px;
+    padding: 20px;
 }
 
 .kartu {
-    background-color: #fffaf4;
+    background-color: var(--krem-kartu);
     border: 1px solid var(--garis);
-    border-radius: 8px;
+    border-radius: 14px;
     padding: 20px 24px;
 }
 
 .kartu h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     margin-top: 0;
-    font-size: 1.2rem;
-    color: var(--coklat-aksen);
+    font-size: 1.25rem;
+    color: var(--coklat-tua);
+}
+
+.kartu h2::before {
+    content: "";
+    flex: none;
+    width: 4px;
+    height: 1.2em;
+    border-radius: 2px;
+    background-color: var(--coklat-aksen);
+}
+
+.kartu h3 {
+    margin: 16px 0 8px;
+    font-size: 1rem;
+}
+
+.kotak-coklat {
+    margin: 0;
+    padding: 10px 12px;
+    background-color: var(--coklat-muda);
+    border-left: 4px solid var(--coklat-aksen);
+    border-radius: 6px;
 }
 
 main {
@@ -122,15 +183,51 @@ main {
     gap: 20px;
 }
 
+.daftar-keahlian {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.daftar-keahlian li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1 1 220px;
+    padding: 10px 14px;
+    background-color: var(--coklat-muda);
+    border-left: 4px solid var(--coklat-aksen);
+    border-radius: 6px;
+}
+
+.daftar-keahlian .ikon {
+    color: var(--coklat-aksen);
+    width: 1.4em;
+    height: 1.4em;
+}
+
+aside .daftar-keahlian {
+    flex-direction: column;
+    gap: 10px;
+}
+
+aside .daftar-keahlian li {
+    flex: none;
+    font-size: 0.9rem;
+}
+
 .tentang-isi {
     display: flex;
-    gap: 20px;
+    gap: 24px;
     align-items: flex-start;
     flex-wrap: wrap;
 }
 
 .tentang-isi img {
-    border-radius: 8px;
+    border-radius: 14px;
     height: auto;
 }
 
@@ -142,31 +239,21 @@ main {
     margin-top: 0;
 }
 
-.daftar-keahlian {
+.baris-ganda {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: flex-start;
 }
 
-.daftar-keahlian li,
-.kotak-coklat {
-    background-color: var(--coklat-muda);
-    border-left: 4px solid var(--coklat-aksen);
-    border-radius: 6px;
-    padding: 10px 12px;
-    font-size: 0.9rem;
-}
-
-.kotak-coklat {
-    margin: 0;
+.baris-ganda .kartu {
+    flex: 1 1 320px;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
+    background-color: #ffffff;
 }
 
 th, td {
@@ -179,11 +266,19 @@ th {
     background-color: var(--coklat-muda);
 }
 
+tr:first-child th {
+    background-color: var(--coklat-aksen);
+    color: #ffffff;
+    text-align: center;
+}
+
 video {
+    display: block;
     width: 100%;
     max-width: 480px;
     height: auto;
-    display: block;
+    border-radius: 8px;
+    background-color: var(--coklat-tua);
 }
 
 audio {
@@ -191,37 +286,26 @@ audio {
     max-width: 480px;
 }
 
-.kartu-form {
-    background-color: #2e2019;
-    border-color: #2e2019;
-    color: #ffffff;
-    padding: 28px 32px;
-}
-
-.kartu-form h2 {
-    color: #ffffff;
-}
-
 form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 14px;
 }
 
 .baris-form {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 14px;
 }
 
 .baris-form .kolom-form {
-    flex: 1 1 220px;
+    flex: 1 1 150px;
 }
 
 .kolom-form {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 4px;
 }
 
 label {
@@ -231,22 +315,23 @@ label {
 input,
 textarea {
     width: 100%;
-    padding: 14px 18px;
-    border: 1px solid #6a5242;
-    border-radius: 12px;
-    background-color: #4a372b;
-    color: #ffffff;
+    padding: 9px 12px;
+    border: 1px solid var(--garis);
+    border-radius: 8px;
+    background-color: #ffffff;
+    color: var(--teks);
     font: inherit;
+    font-size: 0.9rem;
 }
 
 input::placeholder,
 textarea::placeholder {
-    color: #a28b7a;
+    color: #a99480;
 }
 
 input:focus,
 textarea:focus {
-    outline: 2px solid #c79a6d;
+    outline: 2px solid var(--coklat-aksen);
     outline-offset: 1px;
 }
 
@@ -260,45 +345,60 @@ button {
     justify-content: center;
     gap: 10px;
     width: 100%;
-    padding: 16px;
+    padding: 12px;
     border: none;
-    border-radius: 12px;
-    background-color: #8b5e3c;
+    border-radius: 8px;
+    background-color: var(--coklat-aksen);
     color: #ffffff;
     font: inherit;
     font-weight: 500;
-    font-size: 1.05rem;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #a06f48;
+    background-color: var(--coklat-tua);
 }
 
 button:focus-visible {
-    outline: 2px solid #ffffff;
+    outline: 2px solid var(--coklat-tua);
     outline-offset: 2px;
 }
 
 footer#kontak {
-    background-color: var(--coklat-tua);
+    background-color: var(--coklat-header);
     color: #ffffff;
     padding: 20px 32px;
-    border-radius: 8px;
+    border-radius: 14px;
     text-align: center;
 }
 
 footer#kontak h2 {
-    margin: 0 0 4px;
-    font-size: 1.15rem;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 0 0 8px;
+    font-size: 1.2rem;
+}
+
+footer#kontak h2::before,
+footer#kontak h2::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.4);
 }
 
 footer#kontak p {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     margin: 0;
 }
 
 footer#kontak a {
-    color: #e8c9a8;
+    color: #f3d9bd;
 }
 
 @media (max-width: 720px) {
@@ -309,5 +409,7 @@ footer#kontak a {
             "sidebar"
             "content"
             "footer";
+        margin: 0;
+        border-radius: 0;
     }
 }
